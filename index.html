@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Jua" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>siema</title>
+    <link rel="stylesheet" href="css/fontello.css" type="text/css" />
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/animation.css">
+    <script src="JS/animations.js" async></script>
+</head>
+
+<body>
+    <div class="background"></div>
+    <header class="main-header">
+        <a href="#" class="position-left"><span id="gitAnimation"class="icon-github-circled"></span></a>
+        <h1 class="caption heading">Tic-tac-toe</h1><small class="caption subheading">By Dominik Obuch</small><span id="themeChanger" class="position-right icon-sun"></span> </header>
+    <main class="game">
+        <div class="playground">
+            <div id="field1" class="first-column first-row field corner"></div>
+            <div id="field2" class="second-column first-row field side"></div>
+            <div id="field3" class="third-column first-row field corner"></div>
+            <break></break>
+            <div id="field4" class="first-column second-row field side"></div>
+            <div id="field5" class="second-column second-row field center"></div>
+            <div id="field6" class="third-column second-row field side"></div>
+            <break></break>
+            <div id="field7" class="first-column third-row field corner"></div>
+            <div id="field8" class="second-column third-row field side"></div>
+            <div id="field9" class="third-column third-row field corner"></div>
+            <break></break>
+        </div>
+    </main>
+    <footer class="ending-footer">
+        <div class="score">
+            <div id="toogleCircle">Circle: <span id="scoreCircle">0</span></div>
+            <div id="toogleCross"> Cross: <span id="scoreCross">0</span></div>
+        </div>
+        <form action="">
+            <label id="onePlayer">
+                <button class="computer-button button" type="button"><span class="icon-monitor"></span></button>1 VS COM</label>
+            <label>
+                <button class="person-button button" type="button"><span class="icon-user"></span></button>1 VS 1</label>
+        </form>
+    </footer>
+
+    <script src="JS/script.js"></script>
+</body>
+
+</html>

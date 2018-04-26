@@ -1,0 +1,313 @@
+// global variables
+$font-size: 2rem;
+$bg-color: rgb(-20, -20, -50);
+$font-color: rgb(250, 250, 255);
+$field-size: 31vw;
+body {
+    margin: 0 auto;
+    background: $bg-color;
+    user-select: none;
+}
+
+* {
+    user-select: none;
+}
+
+%position-heading-icons {
+    position: absolute;
+    top: 1rem;
+    display: flex;
+}
+
+// heading css
+.caption {
+    justify-content: center;
+    display: flex;
+    color: $font-color;
+    font-family: 'Indie Flower', cursive;
+}
+
+.position-left {
+    @extend %position-heading-icons;
+    align-self: flex-start;
+    left: 0.5rem;
+
+}
+
+.position-right {
+    @extend %position-heading-icons;
+    align-self: flex-end;
+    right: 0.5rem;
+}
+
+.subheading {
+    font-size: $font-size - 1.1rem;
+    margin-bottom: 0.3rem;
+    color: inherit;
+
+}
+
+.heading {
+    background: inherit;
+    color: inherit;
+    letter-spacing: 0.27rem;
+    font-size: $font-size + 0.2rem;
+    margin: 0;
+}
+
+.main-header {
+    color: $font-color;
+    display: flex;
+    flex-direction: column;
+    background: inherit;
+}
+
+// main content css
+.game {
+    background: $bg-color - rgb(10, 10, 100);
+    height: auto;
+    width: 100%;
+    box-sizing: content-box;
+    padding: 0.5rem 0;
+}
+
+.playground {
+    justify-content: center;
+    display: flex;
+    flex-flow: wrap row;
+}
+
+break {
+    flex-basis: 100%;
+    width: 0px;
+    height: 0px;
+    overflow: hidden;
+}
+
+.field {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: $field-size;
+    height: $field-size;
+    flex-wrap: nowrap;
+    cursor: pointer;
+
+}
+
+.first-column,
+.second-column {
+    border-right: 3px solid white;
+}
+
+.first-row,
+.second-row {
+    border-bottom: 3px solid white;
+}
+
+// circle and cross css
+.cross {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &::after,
+    &::before {
+        border-radius: 10px;
+        position: absolute;
+        height: 5rem;
+        border: 0.6rem solid white;
+        content: " ";
+        margin: 0;
+    }
+    &::after {
+        transform: rotate(45deg);
+    }
+    &::before {
+        transform: rotate(-45deg);
+    }
+}
+
+.circle {
+    display: flex;
+    justify-content: center;
+    width: 4rem;
+    height: 4rem;
+    border: 0.7rem solid white;
+    border-radius: 9999rem;
+
+}
+
+//footer css
+.ending-footer {
+    background: $bg-color;
+    width: 100%;
+    color: $font-color;
+    font-family: 'Jua', sans-serif;
+
+
+    .score {
+        display: flex;
+        justify-content: center;
+        margin: 0 30%;
+        padding: 0.5rem 0 0 0;
+        flex-wrap: nowrap;
+        & > div:first-child {
+            display: flex;
+            padding-right: 2.5rem;
+        }
+        > div {
+            display: flex;
+        }
+    }
+    label {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: auto;
+    }
+    form {
+        display: flex;
+    }
+}
+
+// footer form buttons
+.button {
+    background: transparent;
+    border-color: transparent;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and (min-width:768px) {
+    .circle {
+        width: 7rem;
+        height: 7rem;
+        border: 1rem solid white;
+    }
+    .cross {
+        &::before,
+        &::after {
+            border: 0.7rem solid white;
+            height: 9.5rem;
+        }
+    }
+    body {
+        font-size: $font-size - 0.5rem;
+    }
+    .field {
+        width: $field-size - 6vw;
+        height: $field-size - 6vw;
+
+    }
+    .ending-footer {
+        padding-top: 1rem;
+    }
+
+    .caption {
+        font-size: $font-size;
+    }
+    .heading {
+        font-size: $font-size +2rem;
+    }
+    .button {
+        font-size: $font-size - 0.5rem;
+    }
+}
+
+@media screen and (min-width:1024px) {
+    .cross {
+        &::after,
+        &::before {
+            height: 5rem;
+            border: 0.6rem solid white;
+        }
+    }
+    .circle {
+        width: 4rem;
+        height: 4rem;
+        border: 0.7rem solid white;
+    }
+    body {
+        font-size: $font-size - 0.6rem;
+    }
+    .field {
+        width: $field-size - 22vw;
+        height: $field-size - 22vw;
+    }
+    .caption {
+        font-size: $font-size - 1rem;
+    }
+    .heading {
+        font-size: $font-size +1rem;
+    }
+
+    .subheading {
+        font-size: $font-size - 0.7rem;
+    }
+    .button {
+        font-size: $font-size - 0.5rem;
+    }
+
+}
+
+.borderFlash {
+    animation-name: borderFlash;
+    animation-duration: 1s;
+    animation-iteration-count: 2;
+    animation-timing-function: linear;
+}
+
+.active {
+    color: $font-color - rgb(100, 100, 100);
+}
+.animated{
+    transition-duration: 2s;
+}
+.white {
+    > .circle, .cross::before, .cross::after {
+        border-color: black;
+    }
+    .first-column,
+    .second-column {
+        border-color: black;
+    }
+    .first-row,
+    .second-row {
+        border-color: black;
+    }
+    border-color: black;
+    transition-duration: 2s;
+    color: black;
+    background: rgb(255, 255, 255);
+    span::before {
+        color: black;
+    }
+}
+
+label {
+    cursor: pointer;
+    > button {
+        cursor: pointer;
+        span {
+            &::before {
+                cursor: pointer;
+            }
+            cursor: pointer;
+        }
+    }
+}
+
+@keyframes borderFlash {
+    25% {
+        border-color: white;
+    }
+    50% {
+        border-color: black;
+    }
+    100% {
+        border-color: white;
+    }
+}

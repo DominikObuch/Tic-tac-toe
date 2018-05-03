@@ -1,44 +1,35 @@
-@charset "UTF-8";
-/* line 6, /home/billie/Pulpit/kółko i krzyżyk/css/main.scss */
 body {
   margin: 0 auto;
   background: black;
   user-select: none; }
 
-/* line 12, /home/billie/Pulpit/kółko i krzyżyk/css/main.scss */
 * {
   user-select: none; }
 
-/* line 16, /home/billie/Pulpit/kółko i krzyżyk/css/main.scss */
 .position-left, .position-right {
   position: absolute;
   top: 1rem;
   display: flex; }
 
-/* line 23, /home/billie/Pulpit/kółko i krzyżyk/css/main.scss */
 .caption {
   justify-content: center;
   display: flex;
   color: #fafaff;
   font-family: 'Indie Flower', cursive; }
 
-/* line 30, /home/billie/Pulpit/kółko i krzyżyk/css/main.scss */
 .position-left {
   align-self: flex-start;
   left: 0.5rem; }
 
-/* line 37, /home/billie/Pulpit/kółko i krzyżyk/css/main.scss */
 .position-right {
   align-self: flex-end;
   right: 0.5rem; }
 
-/* line 43, /home/billie/Pulpit/kółko i krzyżyk/css/main.scss */
 .subheading {
   font-size: 0.9rem;
   margin-bottom: 0.3rem;
   color: inherit; }
 
-/* line 50, /home/billie/Pulpit/kółko i krzyżyk/css/main.scss */
 .heading {
   background: inherit;
   color: inherit;
@@ -46,14 +37,12 @@ body {
   font-size: 2.2rem;
   margin: 0; }
 
-/* line 58, /home/billie/Pulpit/kółko i krzyżyk/css/main.scss */
 .main-header {
   color: #fafaff;
   display: flex;
   flex-direction: column;
   background: inherit; }
 
-/* line 66, /home/billie/Pulpit/kółko i krzyżyk/css/main.scss */
 .game {
   background: black;
   height: auto;
@@ -61,20 +50,17 @@ body {
   box-sizing: content-box;
   padding: 0.5rem 0; }
 
-/* line 74, /home/billie/Pulpit/kółko i krzyżyk/css/main.scss */
 .playground {
   justify-content: center;
   display: flex;
   flex-flow: wrap row; }
 
-/* line 80, /home/billie/Pulpit/kółko i krzyżyk/css/main.scss */
 break {
   flex-basis: 100%;
   width: 0px;
   height: 0px;
   overflow: hidden; }
 
-/* line 87, /home/billie/Pulpit/kółko i krzyżyk/css/main.scss */
 .field {
   display: flex;
   justify-content: center;
@@ -84,22 +70,18 @@ break {
   flex-wrap: nowrap;
   cursor: pointer; }
 
-/* line 98, /home/billie/Pulpit/kółko i krzyżyk/css/main.scss */
 .first-column,
 .second-column {
   border-right: 3px solid white; }
 
-/* line 103, /home/billie/Pulpit/kółko i krzyżyk/css/main.scss */
 .first-row,
 .second-row {
   border-bottom: 3px solid white; }
 
-/* line 109, /home/billie/Pulpit/kółko i krzyżyk/css/main.scss */
 .cross {
   display: flex;
   justify-content: center;
   align-items: center; }
-  /* line 115, /home/billie/Pulpit/kółko i krzyżyk/css/main.scss */
   .cross::after, .cross::before {
     border-radius: 10px;
     position: absolute;
@@ -107,14 +89,11 @@ break {
     border: 0.6rem solid white;
     content: " ";
     margin: 0; }
-  /* line 124, /home/billie/Pulpit/kółko i krzyżyk/css/main.scss */
   .cross::after {
     transform: rotate(45deg); }
-  /* line 127, /home/billie/Pulpit/kółko i krzyżyk/css/main.scss */
   .cross::before {
     transform: rotate(-45deg); }
 
-/* line 132, /home/billie/Pulpit/kółko i krzyżyk/css/main.scss */
 .circle {
   display: flex;
   justify-content: center;
@@ -123,37 +102,30 @@ break {
   border: 0.7rem solid white;
   border-radius: 9999rem; }
 
-/* line 143, /home/billie/Pulpit/kółko i krzyżyk/css/main.scss */
 .ending-footer {
   background: black;
   width: 100%;
   color: #fafaff;
   font-family: 'Jua', sans-serif; }
-  /* line 150, /home/billie/Pulpit/kółko i krzyżyk/css/main.scss */
   .ending-footer .score {
     display: flex;
     justify-content: center;
     margin: 0 30%;
     padding: 0.5rem 0 0 0;
     flex-wrap: nowrap; }
-    /* line 156, /home/billie/Pulpit/kółko i krzyżyk/css/main.scss */
     .ending-footer .score > div:first-child {
       display: flex;
       padding-right: 2.5rem; }
-    /* line 160, /home/billie/Pulpit/kółko i krzyżyk/css/main.scss */
     .ending-footer .score > div {
       display: flex; }
-  /* line 164, /home/billie/Pulpit/kółko i krzyżyk/css/main.scss */
   .ending-footer label {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: auto; }
-  /* line 170, /home/billie/Pulpit/kółko i krzyżyk/css/main.scss */
   .ending-footer form {
     display: flex; }
 
-/* line 176, /home/billie/Pulpit/kółko i krzyżyk/css/main.scss */
 .button {
   background: transparent;
   border-color: transparent;
@@ -162,111 +134,94 @@ break {
   justify-content: center; }
 
 @media screen and (min-width: 768px) {
-  /* line 185, /home/billie/Pulpit/kółko i krzyżyk/css/main.scss */
   .circle {
     width: 7rem;
     height: 7rem;
     border: 1rem solid white; }
-  /* line 191, /home/billie/Pulpit/kółko i krzyżyk/css/main.scss */
+
   .cross::before, .cross::after {
     border: 0.7rem solid white;
     height: 9.5rem; }
-  /* line 197, /home/billie/Pulpit/kółko i krzyżyk/css/main.scss */
+
   body {
     font-size: 1.5rem; }
-  /* line 200, /home/billie/Pulpit/kółko i krzyżyk/css/main.scss */
+
   .field {
     width: 25vw;
     height: 25vw; }
-  /* line 205, /home/billie/Pulpit/kółko i krzyżyk/css/main.scss */
+
   .ending-footer {
     padding-top: 1rem; }
-  /* line 209, /home/billie/Pulpit/kółko i krzyżyk/css/main.scss */
+
   .caption {
     font-size: 2rem; }
-  /* line 212, /home/billie/Pulpit/kółko i krzyżyk/css/main.scss */
+
   .heading {
     font-size: 4rem; }
-  /* line 215, /home/billie/Pulpit/kółko i krzyżyk/css/main.scss */
+
   .button {
     font-size: 1.5rem; } }
-
 @media screen and (min-width: 1024px) {
-  /* line 222, /home/billie/Pulpit/kółko i krzyżyk/css/main.scss */
   .cross::after, .cross::before {
     height: 5rem;
     border: 0.6rem solid white; }
-  /* line 228, /home/billie/Pulpit/kółko i krzyżyk/css/main.scss */
+
   .circle {
     width: 4rem;
     height: 4rem;
     border: 0.7rem solid white; }
-  /* line 233, /home/billie/Pulpit/kółko i krzyżyk/css/main.scss */
+
   body {
     font-size: 1.4rem; }
-  /* line 236, /home/billie/Pulpit/kółko i krzyżyk/css/main.scss */
+
   .field {
     width: 9vw;
     height: 9vw; }
-  /* line 240, /home/billie/Pulpit/kółko i krzyżyk/css/main.scss */
+
   .caption {
     font-size: 1rem; }
-  /* line 243, /home/billie/Pulpit/kółko i krzyżyk/css/main.scss */
+
   .heading {
     font-size: 3rem; }
-  /* line 247, /home/billie/Pulpit/kółko i krzyżyk/css/main.scss */
+
   .subheading {
     font-size: 1.3rem; }
-  /* line 250, /home/billie/Pulpit/kółko i krzyżyk/css/main.scss */
+
   .button {
     font-size: 1.5rem; } }
-
-/* line 256, /home/billie/Pulpit/kółko i krzyżyk/css/main.scss */
 .borderFlash {
   animation-name: borderFlash;
   animation-duration: 1s;
   animation-iteration-count: 2;
   animation-timing-function: linear; }
 
-/* line 263, /home/billie/Pulpit/kółko i krzyżyk/css/main.scss */
 .active {
   color: #96969b; }
 
-/* line 266, /home/billie/Pulpit/kółko i krzyżyk/css/main.scss */
 .animated {
   transition-duration: 2s; }
 
-/* line 269, /home/billie/Pulpit/kółko i krzyżyk/css/main.scss */
 .white {
   border-color: black;
-  transition-duration: 2s;
   color: black;
   background: white; }
-  /* line 270, /home/billie/Pulpit/kółko i krzyżyk/css/main.scss */
   .white > .circle, .white .cross::before, .white .cross::after {
     border-color: black; }
-  /* line 273, /home/billie/Pulpit/kółko i krzyżyk/css/main.scss */
   .white .first-column,
   .white .second-column {
     border-color: black; }
-  /* line 277, /home/billie/Pulpit/kółko i krzyżyk/css/main.scss */
   .white .first-row,
   .white .second-row {
     border-color: black; }
-  /* line 285, /home/billie/Pulpit/kółko i krzyżyk/css/main.scss */
   .white span::before {
     color: black; }
 
-/* line 290, /home/billie/Pulpit/kółko i krzyżyk/css/main.scss */
 label {
   cursor: pointer; }
-  /* line 292, /home/billie/Pulpit/kółko i krzyżyk/css/main.scss */
   label > button {
     cursor: pointer; }
-    /* line 294, /home/billie/Pulpit/kółko i krzyżyk/css/main.scss */
     label > button span {
       cursor: pointer; }
-      /* line 295, /home/billie/Pulpit/kółko i krzyżyk/css/main.scss */
       label > button span::before {
         cursor: pointer; }
 

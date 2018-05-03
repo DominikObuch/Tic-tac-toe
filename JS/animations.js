@@ -5,13 +5,8 @@ document.getElementsByClassName("icon-github-circled").item(0).addEventListener(
 document.getElementsByClassName("icon-github-circled").item(0).addEventListener("animationend", function () {
     document.getElementsByClassName("icon-github-circled").item(0).classList.remove("animate-spin")
 }, true);
-//zmiana theme
-let theme = 0;
 
-//ciasteczko do zapamiętania theme 
-if (document.cookie = "") {
-    document.cookie = "theme=black; expires=Thu, 18 Dec 2019 12:00:00 UTC;  path=/"
-}
+
 
 function addingClass(themeColor) {
     document.body.classList.toggle(themeColor);
@@ -44,48 +39,30 @@ function showCookie(name) {
 
 
 function animated() {
-    document.body.classList.toggle("animated");
-    document.getElementsByClassName("ending-footer")[0].classList.toggle("animated");
-    document.getElementsByClassName("playground")[0].classList.toggle("animated");
-    document.getElementsByClassName("main-header")[0].classList.toggle("animated");
+    document.body.classList.add("animated");
+    document.getElementsByClassName("ending-footer")[0].classList.add("animated");
+    document.getElementsByClassName("playground")[0].classList.add("animated");
+    document.getElementsByClassName("main-header")[0].classList.add("animated");
     for (let i = 0; i < 9; i++) {
-        document.getElementsByClassName("field")[i].classList.toggle("animated");
+        document.getElementsByClassName("field")[i].classList.add("animated");
     }
-    document.getElementsByClassName("game")[0].classList.toggle("animated");
+    document.getElementsByClassName("game")[0].classList.add("animated");
     theme = 0;
 }
-function elo() {
-    let cookie = true;
-    if (document.cookie == "") {
-        document.cookie = "theme=black";
-        cookie = false;
-        
+
+function themeCookie() {
+    if (document.cookie = "") {
+        document.cookie = "theme=black; expires=Thu, 18 Dec 2019 12:00:00 UTC;  path=/"
     }
     if (showCookie("theme") == "black") {
+        animated();
         addingClass("white");
-        if (theme == 1 && cookie) {
-            addingClass("animated");
-        }
-        document.cookie = "theme=white"
-        theme++;
-    } else if (showCookie("theme") == "white") {
-        addingClass("white");
-        if (theme == 1) {
-            addingClass("animated")
-        }
-        document.cookie = "theme=black"
-        theme++;
+        document.cookie = "theme=white";
+    } else {
+
+        animated();
+        addingClass("white")
+        document.cookie = "theme=black";
     }
-
-
 }
-document.getElementById("themeChanger").addEventListener("click", elo, true)
-
-elo()
-/*
-sprawdzanie czy cookie jest puste
-jesli jest to tworzy nowe z wartoscia black
-jesli nie jest to sprawdza wartosc
-uruchamia funkcj3 ustawiajaca odpowiedni theme
-na klikniecie przycisku zmieniamy ciastko i uruchamiamy funkcje do zmiany theme
-*/
+document.getElementById("themeChanger").addEventListener("click", themeCookie, true)

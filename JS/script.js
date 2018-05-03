@@ -166,12 +166,6 @@ function creatingChar(sign) { //tworzenie kółka i krzyżyka
 for (let i = 0; i < 9; i++) {
     document.getElementsByClassName("field").item(i).addEventListener("click", mainFn, true);
 }
-
-
-
-
-
-//gra dla 1 osoby
 function resetGame() {
     //resetowanie zmiennych
     winner = undefined;
@@ -196,8 +190,6 @@ function resetGame() {
         document.getElementsByClassName("field").item(i).removeEventListener("click", mainFn, true)
         document.querySelectorAll(".field").item(i).innerHTML = "";
     }
-
-
     // funkcja do usuwania klas z selektorów
     function delClass(selector, ...removeClass) {
         if (selector == null) {
@@ -229,101 +221,3 @@ function resetGame() {
 
 
 }
-
-/*function computerMove() {
-    //funkcje dla poszczególnych ruchów
-    //jeśli komputer zaczyna
-    function movementZero() {
-        let rand = Math.round(Math.random() * 4);
-        document.getElementsByClassName("corner")[rand].appendChild(creatingChar("cross"));
-    }
-    if (document.querySelectorAll(".field > div").length == 0 && queue.match == 0) {
-        movementZero();
-    } else if (document.querySelectorAll(".field > div").length == 1) {
-        if (document.getElementsByClassName("circle")[0].parentElement.classList.contains("corner")) {
-            console.log("jestem w rogu")
-        } else if (document.getElementsByClassName("circle")[0].parentElement.classList.contains("side")) {
-            console.log("jestem w boku")
-        } else {
-            console.log("jestem na środku")
-        }
-    }
-}*/
-
-
-
-function onePlayerMainFn() {
-    if (this.innerHTML == "") {
-        this.appendChild(creatingChar("circle"));
-
-        round++;
-        if (round >= 4) {
-            inspection();
-        }
-        computerMove();
-    }
-}
-document.getElementById("onePlayer").addEventListener("click", function () {
-    resetGame();
-    resetEvents();
-    for (let i = 0; i < 9; i++) {
-        document.getElementsByClassName("field").item(i).addEventListener("click", onePlayerMainFn, true);
-    }
-}, true);
-
-function minMaxFn() {
-    let score = 0;
-    let tb = []
-    for (let i = 0; i < 9; i++) {
-        if (document.querySelectorAll(".field div").item(i) == null) {
-            tb.push(null);
-        } else {
-            tb.push(document.querySelectorAll(".field div").item(i).classList.item(0))
-        }
-    
-    }
-
-    function elooo(){
-            let char = "cross"
-            function scoreBilans(amount){if (char=="cross")score+=amount ; else score-=amount;}        
-        //zmiana o 2 
-        for(let x=0;x<=8;x++){ console.log("pierwsza ok");if(tb[x]===char)scoreBilans(4); if(tb[++x]==char)scoreBilans(2)}
-        
-        if(tb[4]==char){scoreBilans(3)}
-        //zmiana po 1
-        for(let x=-1;x<=8;x){console.log("druga ok");if(tb[x++]===char&&tb[x++]===char&&tb[x++]===char){scoreBilans(100)}}
-        //zmiana po 3 z innymi początkami
-        
-        for(let y=0;y<=2;y++){if(tb[y]===char&&tb[y+=3]===char&&tb[y+=3]===char){ scoreBilans(100)}console.log(y--);if(y<-20){return null;}}
-        //zmiana po 
-        if(tb[0]===char&&tb[4]===char&&tb[8]===char){scoreBilans(100)}
-        if(tb[2]===char&&tb[4]===char&&tb[6]===char){scoreBilans(100)}
-        
-        /*for(let x=0; x<=8; x-=3){ console.log("tu nawet nie dojde");if((tb[x]===char&&tb[x++]===char)||(tb[x]===char&&tb[x++]===char)){sc=+5}; if((tb[x-2]===char&&tb[x+=3]===char)||(tb[x]===char&&tb[x+=3]===char)){scoreBilans(5)};}*/
-        
-        
-        if((tb[0]===char&&tb[4]===char)||(tb[4]===char&&tb[8]===char)){scoreBilans(5)};
-        if((tb[2]===char&&tb[4]===char)||(tb[4]===char&&tb[6]===char)){scoreBilans(5)};
-        
-        console.log("ten ruch wynosi" + score);
-    }
-    elooo();
-}
-
-function computerMove() {
-    let elFields = document.querySelectorAll(".field");
-
-    for (let i = 0; i < 9; i++) {
-        if (elFields.item(i).childNodes.length === 1) {} else {
-            elFields.item(i).appendChild(creatingChar("cross"))
-            elFields.item(i).childNodes.item(0).classList.add("notVisible")
-            minMaxFn();
-            elFields.item(i).innerHTML = "";
-        }
-    }
-}
-
-
-
-
-//stawienie wszędzie znaku sprawdzenie ile w tym polu jest pkt do zdobycia wrzucienie tego do tablicy i wyciągnięcie najwyższej wartości

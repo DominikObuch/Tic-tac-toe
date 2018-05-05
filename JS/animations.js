@@ -6,7 +6,7 @@ document.getElementsByClassName("icon-github-circled").item(0).addEventListener(
     document.getElementsByClassName("icon-github-circled").item(0).classList.remove("animate-spin")
 }, true);
 
-
+let theme = 0;
 
 function addingClass(themeColor) {
     document.body.classList.toggle(themeColor);
@@ -52,17 +52,17 @@ function animated() {
 
 function themeCookie() {
     if (document.cookie = "") {
-        document.cookie = "theme=black; expires=Thu, 18 Dec 2019 12:00:00 UTC;  path=/"
+        document.cookie = "theme=black; expires=Thu, 18 Dec 2019 12:00:00 UTC;  path=/";
     }
     if (showCookie("theme") == "black") {
         animated();
         addingClass("white");
         document.cookie = "theme=white";
     } else {
-
         animated();
         addingClass("white")
         document.cookie = "theme=black";
     }
 }
+
 document.getElementById("themeChanger").addEventListener("click", themeCookie, true)
